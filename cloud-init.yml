@@ -7,18 +7,3 @@ users:
     sudo: ["ALL=(ALL) NOPASSWD:ALL"]
     ssh_authorized_keys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP3rGtT/FZ05ebIeCLdDZwr8tMiDzU7jC+iejMNlWWEk Admi@Ubuntu
-
-ssh_pwauth: false                      # запретить логин по паролю по SSH
-disable_root: true                     # root по SSH выключен
-
-# Дублируем правило в отдельный файл sudoers.d с корректными правами —
-# это «прибивает» настройку и удобно проверяется visudo.
-write_files:
-  - path: /etc/sudoers.d/99-admi-nopasswd
-    owner: root:root
-    permissions: '0440'
-    content: |
-      admi ALL=(ALL) NOPASSWD:ALL
-
-runcmd:
-  - visudo -cf /etc/sudoers.d/99-admi-nopasswd   # валидируем синтаксис
