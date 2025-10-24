@@ -17,8 +17,8 @@
 Провести тестирование и приложить скриншоты развернутых в облаке ВМ, успешно отработавшего ansible playbook.
 
 ### Задание 1
-!(img/Screenshot_3.png)
+![](img/Screenshot_3.png)
 
 ### Задание 2
-! (https://github.com/grigoriidan-cyber/sys49-Terraform/blob/main/img/Screenshot_2.png)
-! (https://github.com/grigoriidan-cyber/sys49-Terraform/blob/main/img/Screenshot_1.png)
+![](img/Screenshot_2.png)
+![](img/Screenshot_1.png)
