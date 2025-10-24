@@ -1,0 +1,41 @@
+---
+- name: Nginx on Ubuntu (only)
+  hosts: webservers
+  become: true
+  gather_facts: true
+
+  vars:
+    nginx_web_root: /var/www/html
+
+  tasks:
+    - name: Install nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+
+    - name: Ensure web root exists
+      ansible.builtin.file:
+        path: "{{ nginx_web_root }}"
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+    # Немного отсебятины :)
+    - name: Upload my site
+      ansible.builtin.copy:
+        src: site/
+        dest: "{{ nginx_web_root }}/"
+        owner: root
+        group: root
+        mode: "0644"
+
+    - name: Remove default nginx index page (if present)
+      ansible.builtin.file:
+        path: "{{ nginx_web_root }}/index.nginx-debian.html"
+        state: absent
+
+    - name: Enable and start nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes

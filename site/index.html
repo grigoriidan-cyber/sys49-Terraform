@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Котики: ржачный сайт</title>
+  <meta name="description" content="Смешные котики, мемы и кнопка &quot;мяу&quot;. Настрой настроение на +100!">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="container hero">
+    <div class="logo">
+      <span class="logo__cat" aria-hidden="true">🐾</span>
+      <span class="logo__text">Котики</span>
+    </div>
+    <p class="tagline">Сайт‑витамин от грусти: нажми кнопку — поймай котика 🐱</p>
+    <div class="cta">
+      <button id="btn-new" class="btn">Нового котика!</button>
+      <button id="btn-party" class="btn btn-ghost">Пати‑режим</button>
+    </div>
+  </header>
+
+  <main class="container grid">
+    <section class="card viewer">
+      <div class="viewer__wrap">
+        <img id="cat-img" src="https://placekitten.com/800/500" alt="Случайный кот" />
+        <div id="meme" class="meme">КОТ УВИДЕЛ ТЕБЯ — МЯУ! 😼</div>
+      </div>
+      <div class="controls">
+        <input id="meme-input" class="input" type="text" placeholder="Своя подпись к мемчику…">
+        <button id="btn-meme" class="btn">Надпись на картинку</button>
+        <button id="btn-save" class="btn btn-ghost">Скачать мем</button>
+      </div>
+      <p class="hint">Подсказка: кликай по картинке — она <em>ми-ми-ми‑а‑нимируется</em> ✨</p>
+    </section>
+
+    <section class="card jokes">
+      <h2>Котоматрица</h2>
+      <ul id="jokes-list" class="jokes__list"></ul>
+      <button id="btn-joke" class="btn">Ещё шутку</button>
+    </section>
+
+    <section class="card gallery">
+      <h2>Мини‑галерея</h2>
+      <div class="thumbs" id="thumbs"></div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <p>Сделано с любовью к пушистым. Если сайт не поднял тебе настроение — проверь, не лежит ли на клавиатуре кот.</p>
+  </footer>
+
+  <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
