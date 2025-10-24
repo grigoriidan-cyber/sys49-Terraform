@@ -1,11 +1,21 @@
 ---
-- name: Nginx on Ubuntu (only)
+- name: nginx
+  gather_facts: false
   hosts: webservers
-  become: true
-  gather_facts: true
-
+  become: yes
   vars:
+    ansible_ssh_user: admi
     nginx_web_root: /var/www/html
+
+  pre_tasks:
+    - name: Validating the ssh port is open and
+      wait_for:
+        host: "{{ (ansible_ssh_host|default(ansible_host))|default(inventory_hostname) }}"
+        port: 22
+        delay: 5
+        timeout: 300
+        state: started
+        search_regex: OpenSSH
 
   tasks:
     - name: Install nginx
