@@ -1,5 +1,5 @@
 ---
-- name: nginx
+- name: test
   gather_facts: false
   hosts: webservers
   become: yes
@@ -30,14 +30,6 @@
         owner: root
         group: root
         mode: "0755"
-    # Немного отсебятины :)
-    - name: Upload my site
-      ansible.builtin.copy:
-        src: site/
-        dest: "{{ nginx_web_root }}/"
-        owner: root
-        group: root
-        mode: "0644"
 
     - name: Remove default nginx index page (if present)
       ansible.builtin.file:
