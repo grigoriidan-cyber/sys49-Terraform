@@ -1,11 +1,25 @@
-# Local .terraform directories and files
+# Локальные каталоги Terraform
 **/.terraform/*
-.terraform*
 
+# Держим lock-файл в репозитории (ВАЖНО!)
+!.terraform.lock.hcl
+
+# Если нужен .terraformrc — тоже не игнорим
 !.terraformrc
 
-# .tfstate files
+# Стейты и их бэкапы (никогда не коммитим)
 *.tfstate
 *.tfstate.*
 
-terraform.tfvars
+# Переменные/секреты
+*.tfvars
+*.auto.tfvars
+!*.tfvars.example
+
+# Краш-логи и override-файлы
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
