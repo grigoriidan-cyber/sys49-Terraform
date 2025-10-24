@@ -5,11 +5,11 @@ variable "flow" {
 
 variable "cloud_id" {
   type    = string
-  default = "b1gn3ndpua1j6jaabf79"
+  default = "b1gsk2bfdl9e6h6ilouc"
 }
 variable "folder_id" {
   type    = string
-  default = "b1gfu61oc15cb99nqmfe"
+  default = "b1g0nbbtab0kcgkrf9qu"
 }
 
 variable "test" {
